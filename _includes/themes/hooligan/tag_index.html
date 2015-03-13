@@ -1,0 +1,43 @@
+---
+layout: page
+---
+{% include JB/setup %}
+	
+	<div class="panel-block">
+                  <!-- BEGIN .panel-content -->
+                  <div class="panel-content">
+                    <div class="article-header">
+                      <div class="the-article-title">
+                      <br/>
+                        <center><h1>
+						
+{{page.title}}
+
+</h1></center>
+                        <br />
+                      </div>
+                    </div> <!-- END .panel-content -->
+                  </div>
+                </div>
+                <!-- Begin Tab Section --> 
+				 <div class="the-article-content">
+                   <div class="gallery-content">
+        {% for post in site.posts %}
+{% for tag in post.tags %}
+{% if tag == page.tag %}
+       									
+<h3><center><a href="{{ post.url }}"" title="{{post.title}}" >{{post.title}}</a></center>
+<a href="#" ><img class="align-r" src="http://s1.rdio.cf/assets/images/play-tab2.png"  /></a></h3>
+
+								<div class="spacers spacer-style-1"></div>	
+								
+								{% endif %}
+{% endfor %}
+{% endfor %}
+								</div>
+										</div>
+										<div class="pagination">
+									</div>			
+				<div class="pagination"><span class="prn">&lt; Previous</span>&nbsp;<span>1</span>&nbsp;<a href="?page=2&amp;Id=Electronic" title="go to page 2">2</a>&nbsp;<span class="prn">...</span>&nbsp;<a href="?page=2&amp;Id=Electronic" class="prn" rel="nofollow" title="go to page 2">Next Page <span class="icon-text">&#9656;</span></a>&nbsp;</div>										
+				 <!-- End Tab Section -->
+				</div>

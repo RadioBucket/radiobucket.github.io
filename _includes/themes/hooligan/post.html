@@ -1,0 +1,204 @@
+
+                <div class="panel-block">
+                  <div class="panel-content">
+                    <div class="article-header">
+                      <div class="the-article-title">
+                      <br/>
+                        <center><h1>{{ page.Name }}</h1></center>
+                        <br />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Begin Tab Section -->
+                    <div class="the-article-content">
+                    
+<center>
+
+{% if page.s_type == "shoutcast" %}
+
+<object width="300"
+	    height="85" bgcolor="1f1f1f" >
+      <param name="movie" value="/assets/media/muses.swf" />
+      <param name="flashvars" value="url={{page.Stream}}/;&lang=en&title={{page.Name}}&skin=/assets/media/player.xml" />
+      <param name="wmode" value="window" />
+      <param name="scale" value="noscale" />
+      <embed src="/assets/media/muses.swf" flashvars="url={{page.Stream}}/;&lang=en&title={{page.Name}}&color=red&skin=/assets/media/player.xml"
+	     width="300"
+	     height="85"
+	     scale="noscale"
+		 wmode="window"
+		 bgcolor="1f1f1f"
+		 style="border:1px solid #181818"
+	     type="application/x-shockwave-flash" />
+    </object>
+	
+{% elsif page.s_type == "radionomy" %}
+
+<object width="300" height="85">
+<param name="allowscriptaccess" value="always" />
+<param name="movie" value="http://static.radionomy.com/cdn/flash/BannerEmbed.swf?RadUID={{page.RadUID}}&amp;titlesColor=ffffff&amp;color=1f1f1f&amp;autoPlay=no&amp;lang=en" />
+<param name="wmode" value="transparent" /><embed src="http://static.radionomy.com/cdn/flash/BannerEmbed.swf?RadUID={{page.RadUID}}&amp;titlesColor=ffffff&amp;color=1f1f1f&amp;autoPlay=no&amp;lang=en" wmode="transparent" type="application/x-shockwave-flash" allowscriptaccess="always" width="300" height="85"></embed>
+</object>
+
+{% else %}
+<object width="300"
+	    height="85" bgcolor="1f1f1f" >
+      <param name="movie" value="/assets/media/muses.swf" />
+      <param name="flashvars" value="url={{page.Stream}}&lang=en&title={{page.Name}}&skin=/assets/media/player.xml" />
+      <param name="wmode" value="window" />
+      <param name="scale" value="noscale" />
+      <embed src="/assets/media/muses.swf" flashvars="url={{page.Stream}}&lang=en&title={{page.Name}}&color=red&skin=/assets/media/player.xml"
+	     width="300"
+	     height="85"
+	     scale="noscale"
+		 wmode="window"
+		 bgcolor="1f1f1f"
+		 style="border:1px solid #181818"
+	     type="application/x-shockwave-flash" />
+    </object>
+{% endif %}
+</center><br />
+
+
+									<div class="tabs">
+										<ul>
+							<li><a href="#"><span class="icon-text">&#128240;</span> Station Info.</a></li>
+							<li><a href="#"><span class="icon-text">&#59156;</span> Embed Player</a></li>
+							<li><a href="#"><span class="icon-text">&#9998;</span> Suggest Update</a></li>
+							
+										</ul>
+										<div>
+											
+											
+											{{ content }}<hr />
+											
+	<h4><strong>Bitrate</strong> : {{page.bitrate}} kbps</h4><br />
+		<h4><strong>Website</strong> : <a rel="nofollow" target="_blank" href="http://{{page.Website}}">{{page.Website}}</a></h4><br />
+ <h4><strong>Genres</strong> : {% for tag in page.tags %}<a href="/genre/{{ tag }}">&bull; {{ tag }} </a>&nbsp;&nbsp; {% if forloop.last != true %} {% endif %} {% endfor %}</h4><br />
+             {% if page.Location %} <h4><strong>Location</strong> : {{page.Location}}</h4><br /> {% endif %}
+			  <h4><strong>Contact</strong> : <a href="mailto:{{page.Email}}" target="_blank"> Email the station</a></h4><br />
+			  <h4><strong>Listen using</strong> :
+ {% if page.s_type == "shoutcast" %}<a href="{{page.Stream}}/listen.pls"><img src="http://i0.wp.com/s2.rdio.cf/assets/images/pls.png" title="Play in Winamp" alt="Winamp" /></a>{% else %}
+ <a href="{{page.Stream}}.m3u"><img src="http://i2.wp.com/s1.rdio.ga/assets/images/wmp.png" title="Play in Windows Media Player" alt="WMP" /></a>{% endif %}
+            </h4>
+			  
+</div>
+<!-- Div Embed -->
+<div>
+											
+			<form>	
+<textarea rows="20">
+         
+{{ content }}
+ 	
+
+
+</textarea>
+								
+</form>
+
+									</div>
+										
+										<!-- Div update -->
+										<div>
+											
+											<p>
+											
+											<div id='contact_form_errorloc' class='err'></div>
+<form style="margin-left:10px;" method="POST" name="contact_form" 
+action="http://formspree.io/info@radiobucket.com"> 
+<p>
+
+<label>Station Name </label>
+<input type="text" name="name" value='{{page.Name}} ' >
+
+<input type="hidden" name="id" value='{{page.url}}'  readonly>
+
+<br />
+<label for='name'>Station Website </label>
+<input type="text" name="site" value='http://{{page.Website}}' >
+
+<br />
+<label for='email'>Station Stream </label>
+<input type="text" name="stream" value='{{page.Stream}}'>
+<br />
+<label for='name'>Your Email* </label>
+<input type="email" name="_replyto" value='' >
+<br />
+
+<label for='message'>Message/Updates *</label> 
+<textarea name="body"  class="span6" maxlength="5000" rows="10"></textarea>
+
+
+<input type="submit" value="send" class="styled-button" name='submit'>
+</form>
+
+</p>
+	
+										</div>
+
+										<!-- Div update -->
+									</div>
+
+									
+
+                    </div>
+                    
+                    <!-- End Tab Section -->
+                    
+                      <!-- BEGIN .article-share -->
+                    <div class="article-share">
+                      <div class="assigned-title">
+                        <b>
+                          <span class="icon-text">
+                            &#59196;
+                          </span>
+                          Share this article:
+                        </b>
+                      </div>
+                      <div class="assigned-content">
+                       <!-- AddThis Button BEGIN -->
+                       
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ec6145a7040f29b" async></script>
+
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+<a class="addthis_counter addthis_pill_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+<!-- AddThis Button END -->
+                      </div>
+                      <div class="clear-float">
+                      </div>
+                      <!-- END .article-share -->
+                    </div>
+                    
+                    
+                    <div class="article-share">
+                    
+                      {% include JB/comments %}
+    
+    </div>
+                    
+           
+              
+              </div>
+
+            
+              
+        
+
+                
+                
+                
+                
+                
+               
+                
+                
+             
+              

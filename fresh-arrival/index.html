@@ -1,0 +1,71 @@
+---
+layout: default
+title: Fresh Arrival 
+header: Pages
+group: navigation
+---
+{% include JB/setup %}
+	
+	<div class="panel-block">
+                  <!-- BEGIN .panel-content -->
+                  <div class="panel-content">
+                    <div class="article-header">
+                      <div class="the-article-title">
+                      <br/>
+                        <center><h1>
+						
+{{page.title}}
+
+</h1></center>
+                        <br />
+                      </div>
+                    </div> <!-- END .panel-content -->
+                  </div>
+                </div>
+                <!-- Begin Tab Section --> 
+				 <div class="the-article-content">
+                   <div class="gallery-content">
+		
+
+
+
+        {% for post in paginator.posts %}
+       									
+<h3><center><a href="{{ post.url }}" title="{{post.title}}" >{{post.title}}</a></center>
+<a href="{{ post.url }}" ><img class="align-r" src="http://s1.rdio.cf/assets/images/play-tab2.png"  /></a></h3>
+
+								<div class="spacers spacer-style-1"></div>	
+								
+
+{% endfor %}
+								</div>
+										</div>
+												
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a rel="prev" href="{{ paginator.previous_page_path | replace: 'index.html', '/' | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% else %}
+    <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ '/fresh-arrival' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
+
+				</div>
