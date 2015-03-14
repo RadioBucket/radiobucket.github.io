@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />  
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link type="text/css" rel="stylesheet" href="http://radiobucket.com/assets/css/main-stylesheet-min.css" />
-    <link type="text/css" rel="stylesheet" href="http://radiobucket.com//assets/css/mash-min.css" />
+    <link type="text/css" rel="stylesheet" href="{{site.url}}/assets/css/main-stylesheet-min.css" />
+    <link type="text/css" rel="stylesheet" href="{{site.url}}/assets/css/mash-min.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" async></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script language="javascript" type="text/javascript">
@@ -23,7 +23,7 @@ function popform(url) {
  <!--[if lte IE 8]>
 <link type="text/css" rel="stylesheet" href="/assets/css/ie-ancient.css" />
 <![endif]-->
-<link type="text/css" id="style-responsive" rel="stylesheet" media="screen" href="http://radiobucket.com/assets/css/responsive/desktop.css" />
+<link type="text/css" id="style-responsive" rel="stylesheet" media="screen" href="/assets/css/responsive/desktop.css" />
 
 <title>{% if page.title != null and  page.Location != null %} {{ page.title }} - {{page.Location}} - Listen Online   
 {% elsif page.title != null %}
@@ -32,10 +32,7 @@ function popform(url) {
 RadioBucket
 {% endif %}</title> 
 {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-
-
-	<meta content="{{page.dpic}}" property="og:image">
-	<meta content="{{ site.title }}" property="og:site_name">
+<meta content="{{ site.title }}" property="og:site_name">
 {% if page.title %}  <meta content="{{ page.title }}" property="og:title">{% endif %}
 {% if page.title %}  <meta content="article" property="og:type">{% else %}  <meta content="website" property="og:type">{% endif %}
 {% if page.description %}  <meta content="{{ page.description }}" property="og:description">{% else %}  <meta content="{{ site.description }}" property="og:description">{% endif %}
@@ -48,8 +45,6 @@ RadioBucket
 <meta property="fb:page_id" content="212187565514122" />
 <meta name="OMG-Verify-V1" content="582834-08d353b4-9acf-42fa-8703-4da110b763bc" />	
 <meta property='og:title' content='{% if page.title %} {{ page.title }} - {% endif %} {{ site.title }}'/>
-<meta property="og:url" content="{{page.url}}" />
-<script language="JavaScript" src="http://s2.rdio.cf/assets/js/validator.js" async type="text/javascript"></script> 
 
 <script type="text/javascript">
 
@@ -464,13 +459,13 @@ document.write(random_img[random_number]);
 </script>
       
       <!-- Scripts -->
-      <script type="text/javascript" async src="http://s2.rdio.ga/assets/jscript/jquery-latest.min.js">
+      <script type="text/javascript" async src="{{site.url}}/assets/jscript/jquery-latest.min.js">
       </script>
-      <script type="text/javascript" src="http://s1.rdio.ga/assets/jscript/themes-responsive.js">
+      <script type="text/javascript" src="{{site.url}}/assets/jscript/themes-responsive.js">
       </script>
-      <script type="text/javascript" async src="http://s1.rdio.cf/assets/jscript/theme-scripts.js">
+      <script type="text/javascript" async src="{{site.url}}/assets/jscript/theme-scripts.js">
       </script>
-      <script type="text/javascript" async src="http://s2.rdio.cf/assets/jscript/lightbox.js">
+      <script type="text/javascript" async src="{{site.url}}/assets/jscript/lightbox.js">
       </script>
 
       <!-- END body -->

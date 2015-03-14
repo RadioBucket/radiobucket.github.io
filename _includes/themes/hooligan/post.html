@@ -106,32 +106,33 @@
 											
 											<p>
 											
-											<div id='contact_form_errorloc' class='err'></div>
+											
 <form style="margin-left:10px;" method="POST" name="contact_form" 
 action="http://formspree.io/info@radiobucket.com"> 
 <p>
 
 <label>Station Name </label>
 <input type="text" name="name" value='{{page.Name}} ' >
-
 <input type="hidden" name="id" value='{{page.url}}'  readonly>
-
 <br />
 <label for='name'>Station Website </label>
 <input type="text" name="site" value='http://{{page.Website}}' >
-
 <br />
 <label for='email'>Station Stream </label>
-<input type="text" name="stream" value='{{page.Stream}}'>
+<input type="text" name="stream" value=''>
 <br />
-<label for='name'>Your Email* </label>
-<input type="email" name="_replyto" value='' >
+<label for='email'>Logo </label>
+<input type="text" name="stream" value=''>
 <br />
-
-<label for='message'>Message/Updates *</label> 
+<label for='email'>Location </label>
+<input type="text" name="stream" value='{{page.location}}'>
+<br />
+<label for='name'>Your Email </label>
+<input type="text" name="Email" name="Email" value='' >
+<br />
+<label for='message'>Message/Description *</label> 
 <textarea name="body"  class="span6" maxlength="5000" rows="10"></textarea>
-
-
+<input type="text" name="_gotcha" style="display:none" />
 <input type="submit" value="send" class="styled-button" name='submit'>
 </form>
 
@@ -176,29 +177,10 @@ action="http://formspree.io/info@radiobucket.com">
                       </div>
                       <!-- END .article-share -->
                     </div>
-                    
-                    
+
                     <div class="article-share">
                     
                       {% include JB/comments %}
     
-    </div>
-                    
-           
-              
+    </div>  
               </div>
-
-            
-              
-        
-
-                
-                
-                
-                
-                
-               
-                
-                
-             
-              
