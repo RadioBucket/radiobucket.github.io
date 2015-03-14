@@ -1,13 +1,37 @@
 ---
 layout: page
-title: Submit Station 
-header: Pages
-group: navigation
 ---
 {% include JB/setup %}
 
-<h2>All Pages</h2>
-<ul>
-{% assign pages_list = site.pages %}
-{% include JB/pages_list %}
-</ul>
+
+						<div class="panel-block double-panel">
+<form style="margin-left:10px;" method="POST" name="contact_form" 
+action="http://formspree.io/info@radiobucket.com"> 
+<p>
+<label>Station Name </label>
+<input type="text" name="name" placeholder="Name : MyRadio" value='' >
+<br />
+<label for='name'>Station Website </label>
+<input type="text" placeholder="Website : www.myRadio.com" name="site" value='' >
+<br />
+<label for='stream'>Station Stream </label>
+<input type="text" name="stream" placeholder="Stream : http://myradio.com:8002" value=''>
+<br />
+<label for='location'>Location </label>
+<input type="text" name="location" placeholder="Toronto, ON, Canada" value=''>
+<br />
+<label for='location'>Logo URL</label>
+<input type="text" name="logo" placeholder="http://myradio.com/logo.png" value=''>
+<br />
+<label for='email'>Your Email </label>
+<input type="email" placeholder="Email : admin@xyz-radio.com" name="_replyto" value='' >
+<br />
+<label for='message'>Message | Description</label> 
+<textarea name="body"  placeholder="Any additional information, Genres etc." class="span6" maxlength="5000" rows="10"></textarea>
+<input type="submit" value="send" class="styled-button" name='submit'>
+</form>
+							<div class="clear-float"></div>
+						<!-- END .panel-block -->
+						</div>
+					</div>
+
