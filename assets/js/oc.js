@@ -1,0 +1,11 @@
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("j").hide();
+  });
+   $("#hide1").click(function(){
+    $("j").hide();
+  });
+  $("#show").click(function(){
+    $("j").show();
+  });
+});

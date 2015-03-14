@@ -1,5 +1,5 @@
 <muses-skin folder="player" togglePlayStop="true">
-  <bg image="bg4.png" x="0" y="0" ></bg>
+  <bg image="bg.png" x="0" y="0" ></bg>
   <play image="play-3.png" x="24" y="22" clickimage="play-3.png" />
   <stop image="stop-2.png" x="24" y="22" clickimage="stop-2.png" bgimage="stop-3.png" />
   <text x="85" y="10" width="300" height="28" color="#ffffff" font="Arial" size="12" />
