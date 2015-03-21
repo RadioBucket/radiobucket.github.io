@@ -1,13 +1,14 @@
 ---
 layout: post
 Name: DarezoRockRadio
-Website: http://radionomy.com/darezorockradio
+Website: radionomy.com/darezorockradio
 Stream: http://listen.radionomy.com/darezorockradio 
 Email: rednaxela0825@gmail.com 
-s_type : shoutcast
+s_type : icecast
+logo : https://i.radionomy.com/document/radios/3/34a9/34a9043d-e8cd-44f4-b005-76af15cb5c3f.s250.jpg
 RadUID : 
-bitrate : 256
-tags : [Classic-Rock, Rock, Hard-Rock, Heavy-Metal]
+bitrate : 128
+tags : [Rock, Punk, Hardcore, Alternative]
 ---
 {% include JB/setup %}
 

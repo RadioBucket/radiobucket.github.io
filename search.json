@@ -6,10 +6,10 @@
     {
       "title"    : "{{ post.title | escape }}",
       "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-	  "href"     : "{{ post.url }}",
+      "tags"     : "{{ post.tags | first }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}"
+      "date"     : "{{ post.date }}",
+	  "href"     : "{{ post.url }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

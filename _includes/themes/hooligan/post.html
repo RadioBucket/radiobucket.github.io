@@ -79,9 +79,11 @@
  <h4><strong>Genres</strong> : {% for tag in page.tags %}<a href="/genre/{{ tag }}">&bull; {{ tag }} </a>&nbsp;&nbsp; {% if forloop.last != true %} {% endif %} {% endfor %}</h4><br />
              {% if page.Location %} <h4><strong>Location</strong> : {{page.Location}}</h4><br /> {% endif %}
 			  <h4><strong>Contact</strong> : <a href="mailto:{{page.Email}}" target="_blank"> Email the station</a></h4><br />
-			  <h4><strong>Listen using</strong> :
- {% if page.s_type == "shoutcast" %}<a href="{{page.Stream}}/listen.pls"><img src="http://i0.wp.com/s2.rdio.cf/assets/images/pls.png" title="Play in Winamp" alt="Winamp" /></a>{% else %}
- <a href="{{page.Stream}}.m3u"><img src="http://i2.wp.com/s1.rdio.ga/assets/images/wmp.png" title="Play in Windows Media Player" alt="WMP" /></a>{% endif %}
+ {% if page.s_type == "shoutcast" %}<h4><strong>Listen using</strong> : <a href="{{page.Stream}}/listen.pls"><img src="/assets/images/pls.png" title="Play in Winamp" alt="Winamp" /></a>
+ {% elsif page.s_type == null %}
+ &nbsp;
+ {% else %}
+ <h4><strong>Listen using</strong> : <a href="{{page.Stream}}.m3u"><img src="/assets/images/wmp.png" title="Play in Windows Media Player" alt="WMP" /></a>{% endif %}
             </h4>
 			  
 </div>
@@ -91,9 +93,27 @@
 			<form>	
 <textarea rows="20">
          
-{{ content }}
- 	
+{% if page.s_type == "shoutcast" %}
 
+<object width="300" height="85" bgcolor="1f1f1f" >
+      <param name="movie" value="http://radiobucket.github.io/assets/media/muses.swf" />
+      <param name="flashvars" value="url={{page.Stream}}/;&lang=en&title={{page.Name}}&skin=http://radiobucket.github.io/assets/media/player.xml" />
+      <param name="wmode" value="window" />
+      <param name="scale" value="noscale" />
+      <embed src="http://radiobucket.github.io/assets/media/muses.swf" flashvars="url={{page.Stream}}/;&lang=en&title={{page.Name}}&color=red&skin=http://radiobucket.github.io/assets/media/player.xml"
+	     width="300" height="85" scale="noscale" wmode="window" bgcolor="1f1f1f" style="border:1px solid #181818" type="application/x-shockwave-flash" />
+    </object>
+ 	
+{% else %}
+<object width="300" height="85" bgcolor="1f1f1f" >
+      <param name="movie" value="http://radiobucket.github.io/assets/media/muses.swf" />
+      <param name="flashvars" value="url={{page.Stream}}&lang=en&title={{page.Name}}&skin=http://radiobucket.github.io/assets/media/player.xml" />
+      <param name="wmode" value="window" />
+      <param name="scale" value="noscale" />
+      <embed src="http://radiobucket.github.io/assets/media/muses.swf" flashvars="url={{page.Stream}}&lang=en&title={{page.Name}}&color=red&skin=http://radiobucket.github.io/assets/media/player.xml"
+	     width="300" height="85" scale="noscale" wmode="window" bgcolor="1f1f1f" style="border:1px solid #181818" type="application/x-shockwave-flash" />
+    </object>
+{% endif %}
 
 </textarea>
 								
@@ -110,9 +130,9 @@
 <form style="margin-left:10px;" method="POST" name="contact_form" 
 action="http://formspree.io/info@radiobucket.com"> 
 <p>
-
+<input type="hidden" name="_next" value="/thanks/" />
 <label>Station Name </label>
-<input type="text" name="name" value='{{page.Name}} ' >
+<input type="text" name="name" value='{{page.title}} ' >
 <input type="hidden" name="id" value='{{page.url}}'  readonly>
 <br />
 <label for='name'>Station Website </label>

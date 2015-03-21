@@ -4,101 +4,46 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />  
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link type="text/css" rel="stylesheet" href="{{site.url}}/assets/css/main-stylesheet-min.css" />
-    <link type="text/css" rel="stylesheet" href="{{site.url}}/assets/css/mash-min.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" async></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script language="javascript" type="text/javascript">
-function popitup(url) {
-	newwindow=window.open(url,'name','height=325,width=605');
-	if (window.focus) {newwindow.focus()}
-	return false;
-}
-function popform(url) {
-	newwindow=window.open(url,'name','height=620,width=680');
-	if (window.focus) {newwindow.focus()}
-	return false;
-}
-</script>
+    <link type="text/css" rel="stylesheet" href="{{BASE_URL}}/assets/css/main-stylesheet-min.css" />
+    <link type="text/css" rel="stylesheet" href="{{BASE_URL}}/assets/css/mash-min.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="/assets/js/search.js"></script>
+	<script src="/assets/js/random.js"></script>
  <!--[if lte IE 8]>
 <link type="text/css" rel="stylesheet" href="/assets/css/ie-ancient.css" />
 <![endif]-->
 <link type="text/css" id="style-responsive" rel="stylesheet" media="screen" href="/assets/css/responsive/desktop.css" />
 
-<title>{% if page.title != null and  page.Location != null %} {{ page.title }} - {{page.Location}} - Listen Online   
-{% elsif page.title != null %}
+<title>{% if page.title != null and  page.Location != null %} {{ page.Name }} - {{page.Location}} - Listen Online   
+{% elsif page.title != null and page.Stream != null %}
 {{page.title}} - Listen Online
 {% else %}
-RadioBucket
+{{page.title}}
 {% endif %}</title> 
-{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+
+{% if page.title %}<meta name="description" content="Listen online to {{page.title}} from {{page.Location}}.{{ page.excerpt | strip_html}}">{% endif %}
 <meta content="{{ site.title }}" property="og:site_name">
 {% if page.title %}  <meta content="{{ page.title }}" property="og:title">{% endif %}
 {% if page.title %}  <meta content="article" property="og:type">{% else %}  <meta content="website" property="og:type">{% endif %}
-{% if page.description %}  <meta content="{{ page.description }}" property="og:description">{% else %}  <meta content="{{ site.description }}" property="og:description">{% endif %}
+{% if page.description %}  <meta content="{{ post.content | split: '<!--more-->' | first }}" property="og:description">{% else %}  <meta content="{{ site.description }}" property="og:description">{% endif %}
 {% if page.url %}  <meta content="http://radiobucket.com{{ page.url }}" property="og:url"> {% endif %}
-{% if page.canon %} <link rel="canonical" href="{{ page.canon }}" /> {% else %} <link rel="canonical" href="http://radiobucket.com{{ page.url }}" />{% endif %}
 {% if page.logo %}<meta property='og:image' content='{{page.logo}}'/>{% else %}<meta property='og:image' content='http://i1.wp.com/s2.rdio.cf/img/speaker.png'/>{% endif %}
 <meta property='og:site_name' content='{{ site.title }}'/>
+<meta property="og:type" content="music.radio_station" />
 <meta property="fb:admins" content="100001402555904"/>
 <meta property="og:email" content="info@radiobucket.com">
 <meta property="fb:page_id" content="212187565514122" />
 <meta name="OMG-Verify-V1" content="582834-08d353b4-9acf-42fa-8703-4da110b763bc" />	
-<meta property='og:title' content='{% if page.title %} {{ page.title }} - {% endif %} {{ site.title }}'/>
+<meta property='og:title' content='{% if page.title != null and  page.Location != null %} {{ page.Name }} - {{page.Location}} - Listen Online   
+{% elsif page.title != null and page.Stream != null %}
+{{page.title}} - Listen Online
+{% else %}
+{{page.title}}
+{% endif %}'/>
 
-<script type="text/javascript">
-
-    function generateRandomPosts()
-    {
-        $.getJSON("/search.json", function(data) {
-            console.log("[search.json loaded for random posts]");
-
-            var postsCount = data.length;
-            var posts = data;
-
-            var randomIndexUsed = [];
-            var counter = 0;
-            var numberOfPosts = 10;
-
-            var divRandomPosts = $("#random_posts");
-
-            divRandomPosts.append('');
-
-            while (counter < numberOfPosts)
-            {
-                var randomIndex = Math.floor(Math.random() * postsCount);
-
-                if (randomIndexUsed.indexOf(randomIndex) == "-1")
-                {
-                    var postHREF = posts[randomIndex].href;
-                    var postTitle = posts[randomIndex].title;
-					var postBitrate = posts[randomIndex].bitrate;
-
-                    if (counter == (numberOfPosts - 1))
-                    {
-                        divRandomPosts.append('<div class="article-medium"><div class="article-header"><img  src="http://i1.wp.com/radiobucket.com/img/play.png" alt="img" /></div><div class="article-content"><h2><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></h2></div><div class="article-footer"><a class="left">@ : ' + postBitrate + ' Kbps</a><a href="' + postHREF + '" class="right">TuneIn<span class="icon-text">&#9656;</span></a><div class="clear-float"></div></div></div>');
-                    }
-                    else
-                    {
-                        divRandomPosts.append('<div class="article-medium"><div class="article-header"><img  src="http://i1.wp.com/radiobucket.com/img/play.png" alt="img" /></div><div class="article-content"><h2><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></h2></div><div class="article-footer"><a class="left">@ : ' + postBitrate + ' Kbps</a><a href="' + postHREF + '" class="right">TuneIn<span class="icon-text">&#9656;</span></a><div class="clear-float"></div></div></div>');
-                    }
-
-                    randomIndexUsed.push(randomIndex);
-
-                    counter++;
-                }
-            }
-        });
-    }
-
-    $(document).ready(function() {
-        generateRandomPosts();
-    });
-
-</script>
   </head>
 
-  <body onload="httpstr()">
+  <body">
     
   
     <div class="boxed">
@@ -181,17 +126,17 @@ RadioBucket
           
           <div class="logo-image">
             <a href="/">
-              <img src="http://i2.wp.com/radiobucket.com/station/logo.png" alt="RadioBucket-Logo" />
+              <img src="/assets/images/logo.png" alt="RadioBucket-Logo" />
             </a>
           </div>
           
                   
                   <div class="banner">
                <center>
-
-                    <a href="http://afftrk.biz/?a=53436&c=81&s1=" target="_blank">
-                      <img src="http://c7e2cf31746aa83a7e64-74805dcc0c25b784ea00a48f4b731a31.r61.cf5.rackcdn.com/81_VPS.net%20Modern%20Logo%20468x60.gif" alt="img">
-                    </a>
+                        <a href="//www.bluehost.com/track/harmanpreet/" target="_blank">
+                        <img border="0" src="/assets/media/BH.png">
+                        </a>
+                    
                 </center>
                  
                   </div>
@@ -202,10 +147,17 @@ RadioBucket
                     <!--SEARCH-->
                     
                     <div>
-                      <form action="/search/" method="get">
-                        <input style="width:100%; margin-bottom:20px; text-align:center; height:50px; font-size:25px; color: #fff;  opacity:0.3; background-color : #111; border-radius:10px; " type="text" placeholder="Search.." name="q" id="q" value="" />
-                      </form>
+					<input id="search_input" style="width:100%; margin-bottom:20px; text-align:center; height:50px; font-size:25px; color: #fff;  opacity:0.3; background-color : #111; border-radius:10px; " data-toggle="dropdown" type="text" class="form-control" placeholder="Search" autofocus="autofocus" autocomplete="on" onkeyup="checkTextField();" />
+					
+					 
+                
                     </div>
+					
+					<div style="z-index:999; text-align:justify; font-size:16px; position:relative;">
+					
+<center><ul id="search_results">
+       </ul></center>
+	   </div>
                      <!--SEARCH-->
                   <!-- END .wrapper -->
               </div>
@@ -232,68 +184,55 @@ RadioBucket
 <h3 style="margin-left:5px;"><span>Explore </span>
             <select name="Explore By Genres" onchange="window.location=this.options[this.selectedIndex].value;">
               <OPTION SELECTED VALUE="" disabled>----Select Genre----</OPTION>
-			  {% for tag in site.tags %}
-                            <option style="text-transform:capitalize;" value="/genre/{{ tag[0] }}">{{ tag[0] }}</option>
-                      {% endfor %}
-                                       
-                            
-                          </select>
-          </h3>                 <hr />
-                 <span style="text-align:justify; margin-left:3px;">
-
-<a href="http://radiobucket.com/genre/?Id=Trance" onMouseOver="this.style.color='#656565'" onMouseOut="this.style.color='#656565'" style="color:#656565;font-size:11px;text-decoration:none; font-family:georgia, arial, verdana;" title="Trance">Trance</a>&nbsp;
-<a href="http://radiobucket.com/genre/?Id=Rap" onMouseOver="this.style.color='#656565'" onMouseOut="this.style.color='#656565'" style="color:#656565;font-size:11px;text-decoration:none; font-family:georgia, arial, verdana;" title="Rap">Rap</a> &nbsp;
-<a href="http://radiobucket.com/genre/?Id=Indie" onMouseOver="this.style.color='#656565'" onMouseOut="this.style.color='#656565'" style="color:#656565;font-size:11px;text-decoration:none; font-family:georgia, arial, verdana;" title="Indie">Indie</a> &nbsp;
-<a href="http://radiobucket.com/genre/?Id=Country" onMouseOver="this.style.color='#656565'" onMouseOut="this.style.color='#656565'" style="color:#656565;font-size:11px;text-decoration:none; font-family:georgia, arial, verdana;" title="Country">Country</a> &nbsp;
-<a href="http://radiobucket.com/genre/?Id=Jazz" onMouseOver="this.style.color='#656565'" onMouseOut="this.style.color='#656565'" style="color:#656565;font-size:11px;text-decoration:none; font-family:georgia, arial, verdana;" title="Jazz">Jazz</a> &nbsp;
-<a href="http://radiobucket.com/genre/?Id=Pop" onMouseOver="this.style.color='#656565'" onMouseOut="this.style.color='#656565'" style="color:#656565;font-size:11px;text-decoration:none; font-family:georgia, arial, verdana;" title="Pop">Pop</a> &nbsp;
-</span>                 
+{% capture tags %}  {% for tag in site.tags %}    {{ tag[0] }}  {% endfor %}{% endcapture %}{% assign sortedtags = tags | split:' ' | sort %}
+{% for tag in sortedtags %} 
+<option style="text-transform:capitalize;" value="/genre/{{ tag }}">{{ tag }}</option> 
+{% endfor %}
+                   </select>
+          </h3>                               
                  </center>
                  
 
 
                   <!-- END .panel-block -->
-                </div></div>
+                </div>
+				
+				</div>
+				
+			  <div class="socialize-panel">
+                 <center>
+<img src="http://icons.iconarchive.com/icons/danleech/simple/48/twitter-icon.png" />
+<img src="http://icons.iconarchive.com/icons/danleech/simple/48/facebook-icon.png" />
+<img src="http://icons.iconarchive.com/icons/danleech/simple/48/rss-icon.png" />
+<img src="http://icons.iconarchive.com/icons/danleech/simple/48/google-plus-icon.png" />
+                             
+							
+
+
+                 </center>
+                 
+<br /><br />
+
+                  <!-- END .panel-block -->
+                </div>
 			  
-			  <div class="gallery-content">
-                                
+			  	<div class="gallery-content">
                        <ul class="article-list">
                         <center> 
-						{% for post in site.related_posts limit:5 %}
+						{% for post in site.related_posts limit:4 %}
 						<li>
                         <h3>
                          <a style="text-decoration:none;"  href="{{ BASE_PATH }}{{ post.url }}" title="{{post.title}}">
-         {{post.title}}</a></h3></li></center>
+         {{post.title}}</a></h3></li><hr />
                           {% endfor %}
-        
+        </center>
                         </ul>
                 </div>
-							<br />
-			  
-			  
 			  
 			   <!-- BEGIN .panel-block -->
                 <div class="panel-block">
                   <div class="wide-banner">
-                    <!--<script type="text/javascript">
-var total_images = 2;
-var random_number = Math.floor((Math.random()*total_images));
-var random_img = new Array();
-random_img[0] = '<a href="https://shorte.st/ref/1b50118cfc" target="_blank" rel="nofollow"><img src="https://static.shorte.st/bundles/smeuser/img/referral_banners/125x125.png?v1.11.35"  /></a>';
-
-random_img[1] = '<a href="http://www.ipluggers.com/radio-signup/" target="_blank" rel="nofollow"><img src="http://i1.wp.com/radiobucket.com/img/iPluggers-300x250.jpg"  /></a>';
-document.write(random_img[random_number]);
-</script>-->
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- belle-mod_sidebar_AdSense1_300x250_as -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:250px"
-     data-ad-client="ca-pub-9381870660490809"
-     data-ad-slot="9918303204"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<!--banner Space -->
                    
                   </div>
                   <!-- END .panel-block -->
@@ -301,65 +240,58 @@ document.write(random_img[random_number]);
 				
 			   <div class="split-panel">
                   
+				  <!--<center>
+						   <a href="https://www.peopleperhour.com/site/register?rfrd=510420.1" rel="nofollow" target="_blank">
+                        <img border="0" src="{{BASE_PATH}}/assets/media/pph.jpg">
+                        </a></center>-->
+				  
                   <div class="left">
-                    
-                    <!-- BEGIN .panel-block -->
                     <div class="panel-block">
-                   
-                      <div class="panel-content">
-                        
-                        <!-- BEGIN .article-big -->
-                        <div class="article-big">
-                         
-                          <div class="article-content">
+					<div class="panel-content">
+					<div class="article-big">
+					<div class="article-content">
                            <center>
-                           
-                                                   <a href="https://shorte.st/ref/1b50118cfc" rel="nofollow" target="_blank">
-                        <img border="0" src="https://static.shorte.st/bundles/smeuser/img/referral_banners/125x125.png?v1.11.35">
-                        </a>
-                    
-                           
-                            </center>
-                          </div>
-                         
-                          <!-- END .article-big -->
-                        </div>
-                        
-                      </div>
-                      <!-- END .panel-block -->
-                    </div>
-                    
-                  </div>
+						   <a href="https://shorte.st/ref/1b50118cfc" rel="nofollow" target="_blank">
+                        <img border="0" src="http://i1.wp.com/static.shorte.st/bundles/smeuser/img/referral_banners/125x125.png?v1.11.35">
+                        </a></center>
+                          </div></div></div> </div></div>
                   
-                  <div class="right">
-                    
-                    <!-- BEGIN .panel-block -->
+                  <div class="right"><!-- BEGIN .panel-block -->
                     <div class="panel-block">
-                     
                       <div class="panel-content">
                        <!-- BEGIN .article-big -->
                         <div class="article-big">
-                         
+                          <div class="article-content">
+                           <center> <a href="http://themeforest.net/?ref=hps89"><img src="/assets/media/themeforest.jpg" /></a></center>
+                          </div></div></div></div></div>
+						  
+						  <br />
+						  <div class="left">
+                    <div class="panel-block">
+					<div class="panel-content">
+					<div class="article-big">
+					<div class="article-content">
+                           <center>
+						   <a href="http://codecanyon.net/?ref=hps89" rel="nofollow" target="_blank">	
+                        <img border="0" src="/assets/media/codecanyon.jpg">
+                        </a></center>
+                          </div></div></div> </div></div>
+                  
+                  <div class="right"><!-- BEGIN .panel-block -->
+                    <div class="panel-block">
+                      <div class="panel-content">
+                       <!-- BEGIN .article-big -->
+                        <div class="article-big">
                           <div class="article-content">
                            <center> <a href="http://compare-host.com/visit/hostpapa"><img src="http://www.hostpapa.com/assets/banners-affiliate/395/007hostpapa125x125.gif" /></a></center>
-                          </div>
-                         
-                          <!-- END .article-big -->
-                        </div>
-                        
-                      </div>
-                      <!-- END .panel-block -->
-                    </div>
-                    
-                    
-                    
-                  </div>
+                          </div></div></div></div></div>
                   
                   <div class="clear-float">
                   </div>
                   
                 </div>
                 
+			
 			   
 			    <!-- BEGIN .panel-block -->
                 <div class="panel-block">
@@ -391,10 +323,12 @@ document.write(random_img[random_number]);
               
              <div class="footer-explore">
                <center>
-                
+                <a href="http://tracking.maxcdn.com/c/46936/133488/378"><img src="/assets/media/maxcdn.gif"  style="max-height:90x; max-width:760px; width:100%;"/>
+</a>
+<!--
                      <a href="http://compare-host.com/visit/bluehost"> <img src="http://bluehost-cdn.com/media/partner/images/harmanpreet/760x80/bh-760x80-02-dy.png" style="max-height:90x; max-width:760px; width:100%;" alt="img">
                     </a>
-                  
+                  -->
            </center>
               </div>
               
@@ -409,20 +343,26 @@ document.write(random_img[random_number]);
                 
                 <ul class="right">
                   <li>
-                    <a href="http://www.facebook.com/RadiobucketCom">
-                      Facebook
+                    <a title="Web-design & Development" href="http://www.d89.in">
+                      D89
                     </a>
                   </li>
                   <li>
-                    <a href="http://twitter.com/RadiobucketCom">
-                      Twitter
+                    <a title="Employment News " href="http://www.gjobs.in">
+                      GJobs
+                    </a>
+                  </li>
+				  <li>
+                    <a title="Explore the web " href="http://www.letsfiddle.com">
+                      LetsFiddle
                     </a>
                   </li>
                   <li>
-                    <a href="https://plus.google.com/104670540902720951070" rel="publisher">
-                      Google+
+                    <a title="Web Hosting Comparison" href="http://www.compare-host.com">
+                      Compare Host
                     </a>
                   </li>
+				  
                   
                 </ul>
                 
@@ -430,7 +370,7 @@ document.write(random_img[random_number]);
                 
                 <p>
                   <b>
-                    &copy; Radiobucket | | <a target="_blank" href="http://www.d89.in" title="Web Design & Development">Design Studio 89</a>
+                    &copy; 2011-2015 Radiobucket 
                   </b>
                  
                 </p>

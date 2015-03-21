@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: default
+title: RadioBucket - Listen to Online Radio Stations, Internet Radio
 ---
 {% include JB/setup %}
 
@@ -12,18 +13,21 @@ layout: page
 								</div>
 								<div class="panel-content">
 									<ul class="article-list">
+										
+										{% for tag in site.tags limit:15 %}
+             
 										<li>
 											<div>
 												<div class="article-header">
 													<img src="http://i2.wp.com/radiobucket.com/img/music.png" alt="play button" />
 												</div>
 												<div class="article-content">
-													<h2><a href="http://radiobucket.com/genre/?Id=Top40">Top40</a></h2>
+													<h2><a href="/genre/{{ tag[0] }}">{{ tag[0] }}</a></h2>
 												</div>
 												<div class="clear-float"></div>
 											</div>
 										</li>
-										
+										{% endfor %}
 									</ul>
 								
 								</div>
@@ -38,8 +42,7 @@ layout: page
 								</div>
 								
 								<div id="random_posts"></div>
-								
-									
+													
 							</div>
 							<div class="clear-float"></div>
 						<!-- END .panel-block -->

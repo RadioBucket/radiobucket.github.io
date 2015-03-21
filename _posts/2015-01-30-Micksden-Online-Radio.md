@@ -5,6 +5,7 @@ Website: www.micksden.com
 Stream: http://listen.radionomy.com/micksdenradio70s
 Email: micksden13@gmail.com 
 Location : Hobart, TAS
+logo : https://scontent-sin.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/1476268_839000062808507_5441144930912702362_n.jpg?oh=a29924ff34057278e06429776b682113&oe=557A2E2B
 category :  Australia
 s_type : radionomy
 RadUID : 8071aea9-51e7-40e1-b362-d46b41bbf1ce

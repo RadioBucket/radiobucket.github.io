@@ -27,7 +27,7 @@ layout: default
 {% if tag == page.tag %}
        									
 <h3><center><a href="{{ post.url }}"" title="{{post.title}}" >{{post.title}}</a></center>
-<a href="#" ><img class="align-r" src="http://s1.rdio.cf/assets/images/play-tab2.png"  /></a></h3>
+<a href="{{ post.url }}" ><img class="align-r" src="http://s1.rdio.cf/assets/images/play-tab2.png" alt="{{post.title}}" /></a></h3>
 
 								<div class="spacers spacer-style-1"></div>	
 								
@@ -38,6 +38,4 @@ layout: default
 										</div>
 																
 
-				<div class="pagination"><span class="prn">&lt; Previous</span>&nbsp;<span>1</span>&nbsp;<a href="?page=2&amp;Id=Electronic" title="go to page 2">2</a>&nbsp;<span class="prn">...</span>&nbsp;<a href="?page=2&amp;Id=Electronic" class="prn" rel="nofollow" title="go to page 2">Next Page <span class="icon-text">&#9656;</span></a>&nbsp;</div>										
-				 <!-- End Tab Section -->
 				</div>
