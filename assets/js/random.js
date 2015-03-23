@@ -27,11 +27,11 @@
 
                     if (counter == (numberOfPosts - 1))
                     {
-                        divRandomPosts.append('<div class="article-medium"><div class="article-header"><img  src="http://i1.wp.com/radiobucket.com/img/play.png" alt="img" /></div><div class="article-content"><h2><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></h2></div><div class="article-footer"><a class="left">Genre : ' + postTag + ' </a><a href="' + postHREF + '" class="right">TuneIn<span class="icon-text">&#9656;</span></a><div class="clear-float"></div></div></div>');
+                        divRandomPosts.append('<div class="article-medium"><div class="article-header"><img  src="http://i2.wp.com/media.radiobucket.com/images/play.png" alt="img" /></div><div class="article-content"><h2><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></h2></div><div class="article-footer"><a class="left">Genre : ' + postTag + ' </a><a href="' + postHREF + '" class="right">TuneIn<span class="icon-text">&#9656;</span></a><div class="clear-float"></div></div></div>');
                     }
                     else
                     {
-                        divRandomPosts.append('<div class="article-medium"><div class="article-header"><img  src="http://i1.wp.com/radiobucket.com/img/play.png" alt="img" /></div><div class="article-content"><h2><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></h2></div><div class="article-footer"><a class="left">Genre : ' + postTag + ' </a><a href="' + postHREF + '" class="right">TuneIn<span class="icon-text">&#9656;</span></a><div class="clear-float"></div></div></div>');
+                        divRandomPosts.append('<div class="article-medium"><div class="article-header"><img  src="http://i2.wp.com/media.radiobucket.com/images/play.png" alt="img" /></div><div class="article-content"><h2><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></h2></div><div class="article-footer"><a class="left">Genre : ' + postTag + ' </a><a href="' + postHREF + '" class="right">TuneIn<span class="icon-text">&#9656;</span></a><div class="clear-float"></div></div></div>');
                     }
 
                     randomIndexUsed.push(randomIndex);
