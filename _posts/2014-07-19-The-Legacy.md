@@ -5,7 +5,7 @@ Website: thelegacy.shorturl.com
 Stream: http://listen.djcmedia.com/thelegacyhigh
 Email: 	voodoohippie_radio@yahoo.com
 Location: 	Elizabeth City, NC
-logo: 	http://media.radiobucket.com/stations/the-legacy.jpg
+logo: 	http://media.radiobucket.com/images/the-legacy.jpg
 s_type : icecast
 category: United-States
 RadUID : 
