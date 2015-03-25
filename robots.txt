@@ -2,9 +2,14 @@ User-agent: *
 Disallow: /_
 Disallow: /README
 Disallow: /assets
+Disallow: /fresh
+Disallow: /thanks
+Disallow: /404
+Disallow: /privacy
+Disallow: /submit
 
 
 User-agent: Mediapartners-Google
 Allow: /
 
-SITEMAP: http://radiobucket.com/sitemap.txt
+SITEMAP: http://radiobucket.com/sitemap.xml
