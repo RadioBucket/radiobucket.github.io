@@ -1,6 +1,6 @@
 ---
 layout: post
-Name: Digital Revolution Radio
+Name: DigitalRevolutionRadio
 Website: www.digitalrevolutionradio.com 
 Stream: http://178.63.1.224:8132 
 Email: digitalrevolutionradio.net@gmail.com
