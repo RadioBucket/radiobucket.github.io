@@ -9,20 +9,20 @@
 	<script src="/assets/js/search-min.js"></script>
 	<script src="/assets/js/random-min.js"></script>
 
-<title>{% if page.title != null and  page.Location != null %} {{ page.Name }} - {{page.Location}} - Listen Online   
+<title>{% if page.title != null and  page.Location != null %} {{ page.Name }} - {{page.Location}} - Listen Online  - Radiobucket 
 {% elsif page.title != null and page.Stream != null %}
-{{page.title}} - Listen Online
+{{page.title}} - Listen Online - Radiobucket
 {% else %}
 {{page.title}}
 {% endif %}</title> 
 
-{% if page.Name %}<meta name="description" content="Listen online to {{page.title}} from {{page.Location}}.{{ page.excerpt | strip_html}}">
+{% if page.Name %}<meta name="description" content="Listen online to {{page.title}} from {{page.Location}} {{page.category}}.{{ page.excerpt | strip_html}}">
 {% elsif page.excerpt %}<meta name="description" content="{{ page.excerpt}}">
 {% else %} <meta name="description" content="{{ page.title}},Listen online to 1000s of internet radio stations featuring every style, including hip hop, jazz, new age, rock, classical, oldies, and more. Search/browse & Listen to live Internet Radio Stations"> {% endif %}
 <meta content="{{ site.title }}" property="og:site_name">
 {% if page.title %}  <meta content="article" property="og:type">{% else %}  <meta content="website" property="og:type">{% endif %}
 {% if page.url %}  <meta content="http://radiobucket.com{{ page.url | remove: 'index.html'}}" property="og:url"> {% endif %}
-{% if page.logo %}<meta property='og:image' content='{{page.logo}}'/>{% else %}<meta property='og:image' content='http://i1.wp.com/s2.rdio.cf/img/speaker.png'/>{% endif %}
+{% if page.logo %}<meta property='og:image' content='{{page.logo}}'/>{% else %}<meta property='og:image' content='http://i1.wp.com/radiobucket.com/assets/images/radio.jpg'/>{% endif %}
 <meta property='og:site_name' content='{{ site.title }}'/>
 <meta property="og:type" content="music.radio_station" />
 <meta property="fb:admins" content="100001402555904"/>
@@ -129,7 +129,7 @@
                   <div class="banner">
                <center>
                         <a href="//www.bluehost.com/track/harmanpreet/" target="_blank">
-                        <img border="0" src="//media.radiobucket.com/assets/media/BH.png">
+                        <img border="0" src="//i2.wp.com/media.radiobucket.com/assets/media/BH.png">
                         </a>
                     
                 </center>
@@ -197,10 +197,10 @@
 			  <div class="socialize-panel">
                  <center>
 
-<a href="http://facebook.com/RadiobucketCom" target="_blank" alt="Facebook"><img src="http://media.radiobucket.com/images/facebook-icon.png" /></a>
-<a href="http://twitter.com/RadiobucketCom" target="_blank" alt="Twitter"><img src="http://media.radiobucket.com/images/twitter-icon.png" /></a>
-<a href="http://google.com/+RadiobucketCom" target="_blank" alt="Google Plus"><img src="http://media.radiobucket.com/images/google-plus-icon.png" /></a>
-<a href="http://feeds.feedburner.com/RadiobucketCom" target="_blank" alt="RSS"><img src="http://media.radiobucket.com/images/rss-icon.png" /></a>                   
+<a href="http://facebook.com/RadiobucketCom" target="_blank" alt="Facebook"><img src="http://i0.wp.com/media.radiobucket.com/images/facebook-icon.png" /></a>
+<a href="http://twitter.com/RadiobucketCom" target="_blank" alt="Twitter"><img src="http://i2.wp.com/media.radiobucket.com/images/twitter-icon.png" /></a>
+<a href="http://google.com/+RadiobucketCom" target="_blank" alt="Google Plus"><img src="http://i1.wp.com/media.radiobucket.com/images/google-plus-icon.png" /></a>
+<a href="http://feeds.feedburner.com/RadiobucketCom" target="_blank" alt="RSS"><img src="http://i2.wp.com/media.radiobucket.com/images/rss-icon.png" /></a>                   
                  </center>
 
                   <!-- END .panel-block -->
@@ -249,7 +249,7 @@
                        <!-- BEGIN .article-big -->
                         <div class="article-big">
                           <div class="article-content">
-                           <center> <a href="http://themeforest.net/?ref=hps89"><img src="/assets/media/themeforest.jpg" /></a></center>
+                           <center> <a href="http://themeforest.net/?ref=hps89"><img src="http://i1.wp.com/radiobucket.com/assets/media/themeforest.jpg" /></a></center>
                           </div></div></div></div></div>
 						  
 						  <br />
@@ -277,7 +277,7 @@
                   </div>
                   <center>
 						   <a href="https://www.peopleperhour.com/site/register?rfrd=510420.1" rel="nofollow" target="_blank">
-                        <img border="0" src="//media.radiobucket.com/assets/media/pph.jpg">
+                        <img border="0" src="//i0.wp.com/media.radiobucket.com/assets/media/pph.jpg">
                         </a></center>
 						
                 </div>
