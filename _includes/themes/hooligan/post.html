@@ -75,7 +75,7 @@
 			{% if page.s_type == "shoutcast" %}
             <h4><strong>Listen using</strong> : <a href="{{page.Stream}}/listen.pls"><img src="/assets/images/pls.png" title="Play in Winamp" alt="Winamp" /></a> 
  {% elsif page.s_type == null %}
- &nbsp;
+ &nbsp;{% else %}
  <h4><strong>Listen using</strong> : <a href="{{page.Stream}}.m3u"><img src="/assets/images/pls.png" title="Play in Winamp" alt="WMP" /></a><a href="{{page.Stream}}.m3u"><img src="/assets/images/wmp.png" title="Play in Windows Media Player" alt="WMP" /></a> {% endif %}
             </h4>
 
