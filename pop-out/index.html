@@ -1,0 +1,24 @@
+---
+# Remember to set production_url in your _config.yml file!
+title : Enjoy Your Music
+---
+{% include JB/setup %}
+<center>
+<h1 id="{{post.url}}">{{post.Name}}</h1>
+<hr />
+ {% if post.s_type == "shoutcast" %}
+<audio controls><source src="{{post.Stream}}/;" />Your browser does not support the audio element.</audio> 
+{% else %}  
+<audio controls><source src="{{post.Stream}}" />Your browser does not support the audio element.</audio>
+{% endif %}
+				{% comment %}	
+{{site.production_url}}{{ post.url }}
+{{ 'foo' | append:'bar' }} #=> 'foobar'
+
+
+{{ 'page.url' | remove_first:'/' }} #=> 'bar'
+
+
+{% endcomment %}
+</center>
+
