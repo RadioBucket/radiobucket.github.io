@@ -3,10 +3,10 @@ jQuery(document).ready(function(){
 	orange_responsive();
 });
 
-var iPhoneVertical = Array(null,320,"http://s1.rdio.cf/assets/css/responsive/phonevertical.css?"+Date());
-var iPhoneHorizontal = Array(321,860,"http://s1.rdio.cf/assets/css/responsive/phonehorizontal.css?"+Date());
-var iPad = Array(861,1200,"http://s1.rdio.ga/assets/css/responsive/ipad.css?"+Date());
-var dekstop = Array(1201,null,"http://s1.rdio.ga/assets/css/responsive/desktop.css?"+Date());
+var iPhoneVertical = Array(null,320,"http://radiobucket.com/assets/css/responsive/phonevertical.css?"+Date());
+var iPhoneHorizontal = Array(321,860,"http://radiobucket.com/assets/css/responsive/phonehorizontal.css?"+Date());
+var iPad = Array(861,1200,"http://radiobucket.com/assets/css/responsive/ipad.css?"+Date());
+var dekstop = Array(1201,null,"http://radiobucket.com/assets/css/responsive/desktop.css?"+Date());
 
 var is_orange_mobile = false;
 

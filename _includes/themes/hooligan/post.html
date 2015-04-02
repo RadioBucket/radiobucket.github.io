@@ -52,9 +52,11 @@
         <ul>
             <li><a href="#"><span class="icon-text">&#128240;</span> Station Info.</a></li>
             <li><a href="#"><span class="icon-text">&#59156;</span> Embed Player</a></li>
-            <li><a href="#"><span class="icon-text">&#9998;</span> Suggest Update</a></li>
-
-        </ul>
+			<a href="/submit/update/" style="margin-left:15px; margin-top:10px; color:#636363;"><span class="icon-text">&#9998;</span> Suggest an Update</a>
+			
+			
+                    </ul>
+					
         <div>
 
 
@@ -78,7 +80,7 @@
  &nbsp;{% else %}
  <h4><strong>Listen using</strong> : <a href="{{page.Stream}}.m3u"><img src="/assets/images/pls.png" title="Play in Winamp" alt="WMP" /></a><a href="{{page.Stream}}.m3u"><img src="/assets/images/wmp.png" title="Play in Windows Media Player" alt="WMP" /></a> {% endif %}
             </h4>
-
+	
         </div>
         <!-- Div Embed -->
         <div>
@@ -112,45 +114,7 @@
 
         </div>
 
-        <!-- Div update -->
-        <div>
-
-            <p>
-
-
-                <form style="margin-left:10px;" method="POST" name="contact_form" action="http://formspree.io/info@radiobucket.com">
-                    <p>
-                        <input type="hidden" name="_next" value="/thanks/" />
-                        <label>Station Name </label>
-                        <input type="text" name="name" value='{{page.title}} '>
-                        <input type="hidden" name="id" value='{{page.url}}' readonly>
-                        <br />
-                        <label for='name'>Station Website </label>
-                        <input type="text" name="site" value='http://{{page.Website}}'>
-                        <br />
-                        <label for='email'>Station Stream </label>
-                        <input type="text" name="stream" value=''>
-                        <br />
-                        <label for='email'>Logo </label>
-                        <input type="text" name="stream" value=''>
-                        <br />
-                        <label for='email'>Location </label>
-                        <input type="text" name="stream" value='{{page.location}}'>
-                        <br />
-                        <label for='name'>Your Email </label>
-                        <input type="text" name="Email" name="Email" value=''>
-                        <br />
-                        <label for='message'>Message/Description *</label>
-                        <textarea name="body" class="span6" maxlength="5000" rows="10"></textarea>
-                        <input type="text" name="_gotcha" style="display:none" />
-                        <input type="submit" value="send" class="styled-button" name='submit'>
-                </form>
-
-                </p>
-
-        </div>
-
-        <!-- Div update -->
+       
     </div>
 
 

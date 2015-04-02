@@ -2,4 +2,3 @@
 ---
 {% include main-stylesheet-min.css %}
 {% include mash-min.css %}
-{% include responsive/desktop.css %}
