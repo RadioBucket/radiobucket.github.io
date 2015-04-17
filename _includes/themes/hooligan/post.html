@@ -15,8 +15,8 @@
 <div class="the-article-content">
 
     <center>
-
-        {% if page.s_type == "shoutcast" %}
+		{% case page.s_type %}
+        {% when 'shoutcast' %}
 
         <object width="300" height="85" bgcolor="1f1f1f">
             <param name="movie" value="/assets/media/muses.swf" />
@@ -26,7 +26,7 @@
             <embed src="/assets/media/muses.swf" flashvars="url={{page.Stream}}/;&lang=en&title={{page.Name}}&color=red&skin=/assets/media/player.xml" width="300" height="85" scale="noscale" wmode="window" bgcolor="1f1f1f" style="border:1px solid #181818" type="application/x-shockwave-flash" />
         </object>
 
-        {% elsif page.s_type == "radionomy" %}
+        {% when 'radionomy' %}
 
         <object width="300" height="85">
             <param name="allowscriptaccess" value="always" />
@@ -34,6 +34,16 @@
             <param name="wmode" value="transparent" />
             <embed src="http://static.radionomy.com/cdn/flash/BannerEmbed.swf?RadUID={{page.RadUID}}&amp;titlesColor=ffffff&amp;color=1f1f1f&amp;autoPlay=no&amp;lang=en" wmode="transparent" type="application/x-shockwave-flash" allowscriptaccess="always" width="300" height="85"></embed>
         </object>
+		{% when 'radionomy2' %}
+		<script>(function (win, doc, script, source, objectName) { (win.RadionomyPlayerObject = win.RadionomyPlayerObject || []).push(objectName); win[objectName] = win[objectName] || function (k, v) { (win[objectName].parameters = win[objectName].parameters || { src: source, version: '1.1' })[k] = v; }; var js, rjs = doc.getElementsByTagName(script)[0]; js = doc.createElement(script); js.async = 1; js.src = source; rjs.parentNode.insertBefore(js, rjs); }(window, document, 'script', 'https://www.radionomy.com/js/radionomy.player.js', 'radplayer'));
+		radplayer('url', '{{page.RadUID}}');
+		radplayer('type', 'mobile');
+		radplayer('autoplay', '0');
+		radplayer('volume', '50');
+		radplayer('color1', '#000000');
+		radplayer('color2', '#ffffff');
+		</script>
+		<div class="radionomy-player"></div>
 
         {% else %}
         <object width="300" height="85" bgcolor="1f1f1f">
@@ -43,7 +53,7 @@
             <param name="scale" value="noscale" />
             <embed src="/assets/media/muses.swf" flashvars="url={{page.Stream}}&lang=en&title={{page.Name}}&color=red&skin=/assets/media/player.xml" width="300" height="85" scale="noscale" wmode="window" bgcolor="1f1f1f" style="border:1px solid #181818" type="application/x-shockwave-flash" />
         </object>
-        {% endif %}
+        {% endcase %}
     </center>
     <br />
 
